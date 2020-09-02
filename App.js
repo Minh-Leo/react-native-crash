@@ -1,11 +1,17 @@
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
+
+import Images from './Images';
 
 export default function App() {
+  const [outputText, setOutputText] = useState('Minh');
+
   return (
     <View style={styles.container}>
-      <Text>Minh</Text>
+      <Images />
+      <Text style={styles.text}>{outputText}</Text>
+      <Button title='Change text' onPress={() => setOutputText('Hi there')} />
       <StatusBar style='auto' />
     </View>
   );
@@ -14,8 +20,12 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#3d4f22',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  text: {
+    color: '#fff',
+    fontSize: 55,
   },
 });
